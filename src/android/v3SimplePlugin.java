@@ -12,13 +12,25 @@ import org.json.JSONObject;
  */
 public class v3SimplePlugin extends CordovaPlugin {
 
+//    @Override
+//    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+//        if (action.equals("coolMethod")) {
+//            String message = args.getString(0);
+//            this.coolMethod(message, callbackContext);
+//            return true;
+//        }
+//        return false;
+//    }
+
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals("coolMethod")) {
-            String message = args.getString(0);
-            this.coolMethod(message, callbackContext);
+    public boolean execute(String action, final CordovaArgs args, final CallbackContext callbackContext)
+        throws JSONException {
+        if (action.equals("printData")) {
+            PrintData();
+            callbackContext.success("okay");
             return true;
         }
+
         return false;
     }
 
@@ -29,4 +41,15 @@ public class v3SimplePlugin extends CordovaPlugin {
             callbackContext.error("Expected one non-empty string argument.");
         }
     }
+
+    public void PrintData() {
+        cordova.GetActivity().runOnUiThread(new Runnable {
+            @Override
+                    public void run() {
+                Toast myMessage = Toast.makeText(cordova.getActivity().getWindow().getContext(), "This message is from v3SimplePlugin", Toast.LENGTH_LONG);
+                myMessage.show();
+            }
+        });
+    }
+
 }
