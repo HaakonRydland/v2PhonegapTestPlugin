@@ -17,6 +17,10 @@ v3SimplePlugin.prototype.printData = function(data, callbackOK, callbackError) {
     this.pInvoke("printData", data, callbackOK, callbackError);
 };
 
+v3SimplePlugin.prototype.coolMethod = function(data, callbackOK, callbackError) {
+    this.pInvoke("coolMethod", data, callbackOK, callbackError);
+};
+
 v3SimplePlugin.install = function() {
     if (!window.plugins) {
         window.plugins = {};
@@ -28,7 +32,7 @@ v3SimplePlugin.install = function() {
 
  cordova.addConstructor(v3SimplePlugin.install);
 
-// standardgreier
-exports.coolMethod = function (arg0, success, error) {
-    exec(success, error, 'v3SimplePlugin', 'coolMethod', [arg0]);
-};
+// // standardgreier
+// exports.coolMethod = function (arg0, success, error) {
+//     exec(success, error, 'v3SimplePlugin', 'coolMethod', [arg0]);
+// };
