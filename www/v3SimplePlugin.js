@@ -14,10 +14,12 @@ v3SimplePlugin.prototype.pInvoke = function(method, data, callbackOK, callbackEr
 };
 
 v3SimplePlugin.prototype.printData = function(data, callbackOK, callbackError) {
+    console.log('JS Interface: inside printData()');
     this.pInvoke("printData", data, callbackOK, callbackError);
 };
 
 v3SimplePlugin.prototype.coolMethod = function(data, callbackOK, callbackError) {
+    console.log('JS Interface: inside coolMethod()');
     this.pInvoke("coolMethod", data, callbackOK, callbackError);
 };
 
