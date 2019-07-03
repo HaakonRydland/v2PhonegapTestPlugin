@@ -1,0 +1,19 @@
+{
+  "name": "cordova.plugin.v3simpleplugin",
+  "version": "0.0.1",
+  "description": "testprosjekt",
+  "cordova": {
+    "id": "cordova.plugin.v3simpleplugin",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "",
+  "license": "ISC"
+}

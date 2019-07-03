@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova.plugin.v3simpleplugin" version="0.0.1">
+   <name>v3SimplePlugin</name>
+   <js-module name="v3SimplePlugin" src="www/v3SimplePlugin.js">
+      <clobbers target="cordova.plugins.v3SimplePlugin" />
+   </js-module>
+   <platform name="android">
+      <config-file parent="/*" target="res/xml/config.xml">
+         <feature name="v3SimplePlugin">
+            <param name="android-package" value="cordova.plugin.v3simpleplugin.v3SimplePlugin" />
+         </feature>
+      </config-file>
+      <config-file parent="/*" target="AndroidManifest.xml" />
+      <source-file src="src/android/v3SimplePlugin.java" target-dir="src/cordova/plugin/v3simpleplugin/v3SimplePlugin" />
+   </platform>
+   <platform name="ios">
+      <config-file parent="/*" target="config.xml">
+         <feature name="v3SimplePlugin">
+            <param name="ios-package" value="v3SimplePlugin" />
+         </feature>
+      </config-file>
+      <source-file src="src/ios/v3SimplePlugin.m" />
+   </platform>
+</plugin>
