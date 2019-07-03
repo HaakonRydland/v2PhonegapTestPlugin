@@ -5,6 +5,7 @@ function v3SimplePlugin() {}
 v3SimplePlugin.prototype.PluginName = "v3SimplePlugin";
 
 v3SimplePlugin.prototype.pInvoke = function(method, data, callbackOK, callbackError) {
+    console.log('JS Interface: inside pInvoke()');
     if (data == null || data === undefined) {
         data = [];
     } else if (!Array.isArray(data)) {
@@ -13,7 +14,7 @@ v3SimplePlugin.prototype.pInvoke = function(method, data, callbackOK, callbackEr
     exec(callbackOK, callbackError, this.PluginName, method, data);
 };
 
-v3SimplePlugin.prototype.printData = function(data, callbackOK, callbackError) {
+v3SimplePlugin.prototype.printData2 = function(data, callbackOK, callbackError) {
     console.log('JS Interface: inside printData()');
     this.pInvoke("printData", data, callbackOK, callbackError);
 };
@@ -24,6 +25,7 @@ v3SimplePlugin.prototype.coolMethod = function(data, callbackOK, callbackError) 
 };
 
 v3SimplePlugin.install = function() {
+    console.log('JS Interface: inside install()');
     if (!window.plugins) {
         window.plugins = {};
     }

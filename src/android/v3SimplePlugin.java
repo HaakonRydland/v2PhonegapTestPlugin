@@ -27,25 +27,21 @@ public class v3SimplePlugin extends CordovaPlugin {
     public boolean execute(String action, final CordovaArgs args, final CallbackContext callbackContext)
         throws JSONException {
         if (action.equals("printData")) {
-            System.out.println("Java: triggered printData()");
-            PrintData();
+            PrintData2();
             callbackContext.success("okay");
             return true;
         }
 
         if (action.equals("coolMethod")) {
-            System.out.println("Java: triggered coolMethod()");
             String message = args.getString(0);
             coolMethod(message, callbackContext);
             return true;
         }
 
-        System.out.println("Java: didn't match any methods");
         return false;
     }
 
     public void coolMethod(String message, CallbackContext callbackContext) {
-        System.out.println("Java: inside coolMethod()");
         if (message != null && message.length() > 0) {
             callbackContext.success(message);
         } else {
@@ -53,8 +49,7 @@ public class v3SimplePlugin extends CordovaPlugin {
         }
     }
 
-    public void PrintData() {
-        System.out.println("Java: inside PrintData()");
+    public void PrintData2() {
         cordova.getActivity().runOnUiThread(new Runnable() {
 
             @Override
