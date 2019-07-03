@@ -25,7 +25,7 @@ public class v3SimplePlugin extends CordovaPlugin {
 
     // Main  method for interacting with native code
     @Override
-    public boolean execute(String action, final CordovaArgs args, final CallbackContext callbackContext)
+    public boolean execute(String action, final JSONArray args, final CallbackContext callbackContext)
         throws JSONException {
         if (action.equals("printData")) {
             PrintData();
