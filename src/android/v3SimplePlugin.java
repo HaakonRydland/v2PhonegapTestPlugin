@@ -22,6 +22,7 @@ public class v3SimplePlugin extends CordovaPlugin {
 //        return false;
 //    }
 
+    // Main  method for interacting with native code
     @Override
     public boolean execute(String action, final CordovaArgs args, final CallbackContext callbackContext)
         throws JSONException {
@@ -31,16 +32,22 @@ public class v3SimplePlugin extends CordovaPlugin {
             return true;
         }
 
+        if (action.equals("coolMethod")) {
+            String message = args.getString(0);
+            this.coolMethod(message, callbackContext);
+            return true;
+        }
+
         return false;
     }
 
-//    private void coolMethod(String message, CallbackContext callbackContext) {
-//        if (message != null && message.length() > 0) {
-//            callbackContext.success(message);
-//        } else {
-//            callbackContext.error("Expected one non-empty string argument.");
-//        }
-//    }
+    private void coolMethod(String message, CallbackContext callbackContext) {
+        if (message != null && message.length() > 0) {
+            callbackContext.success(message);
+        } else {
+            callbackContext.error("Expected one non-empty string argument.");
+        }
+    }
 
     public void PrintData() {
         cordova.getActivity().runOnUiThread(new Runnable() {

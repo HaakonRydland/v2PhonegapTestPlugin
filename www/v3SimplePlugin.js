@@ -29,6 +29,6 @@ v3SimplePlugin.install = function() {
  cordova.addConstructor(v3SimplePlugin.install);
 
 // standardgreier
-// exports.coolMethod = function (arg0, success, error) {
-//     exec(success, error, 'v3SimplePlugin', 'coolMethod', [arg0]);
-// };
+exports.coolMethod = function (arg0, success, error) {
+    exec(success, error, 'v3SimplePlugin', 'coolMethod', [arg0]);
+};
