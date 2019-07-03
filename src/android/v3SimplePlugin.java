@@ -6,6 +6,7 @@ import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.widget.Toast;
 
 /**
  * This class echoes a string called from JavaScript.
