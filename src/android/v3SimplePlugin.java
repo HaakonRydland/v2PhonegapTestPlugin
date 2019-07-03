@@ -34,22 +34,22 @@ public class v3SimplePlugin extends CordovaPlugin {
         return false;
     }
 
-    private void coolMethod(String message, CallbackContext callbackContext) {
-        if (message != null && message.length() > 0) {
-            callbackContext.success(message);
-        } else {
-            callbackContext.error("Expected one non-empty string argument.");
-        }
-    }
+//    private void coolMethod(String message, CallbackContext callbackContext) {
+//        if (message != null && message.length() > 0) {
+//            callbackContext.success(message);
+//        } else {
+//            callbackContext.error("Expected one non-empty string argument.");
+//        }
+//    }
 
     public void PrintData() {
-        cordova.GetActivity().runOnUiThread(new Runnable {
+        cordova.getActivity().runOnUiThread(new Runnable() {
+
             @Override
-                    public void run() {
+            public void run() {
                 Toast myMessage = Toast.makeText(cordova.getActivity().getWindow().getContext(), "This message is from v3SimplePlugin", Toast.LENGTH_LONG);
                 myMessage.show();
             }
         });
     }
-
 }
