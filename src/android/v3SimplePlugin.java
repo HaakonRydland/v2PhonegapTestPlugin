@@ -40,8 +40,8 @@ public class v3SimplePlugin extends CordovaPlugin {
         }
 
         if (action.equals("toastMessage")) {
-            String message = args.getString(0);
             toastMessage();
+            callbackContext.success("okay");
             return true;
         }
 
