@@ -19,6 +19,11 @@ v3SimplePlugin.prototype.printData = function(data, callbackOK, callbackError) {
     this.pInvoke("printData", data, callbackOK, callbackError);
 };
 
+v3SimplePlugin.prototype.toastMessage = function(data, callbackOK, callbackError) {
+    console.log('JS Interface: inside toastMessage()');
+    this.pInvoke("toastMessage", data, callbackOK, callbackError);
+};
+
 v3SimplePlugin.prototype.coolMethod = function(data, callbackOK, callbackError) {
     console.log('JS Interface: inside coolMethod()');
     this.pInvoke("coolMethod", data, callbackOK, callbackError);

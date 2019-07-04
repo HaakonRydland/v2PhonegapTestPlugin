@@ -39,6 +39,12 @@ public class v3SimplePlugin extends CordovaPlugin {
             return true;
         }
 
+        if (action.equals("toastMessage")) {
+            String message = args.getString(0);
+            toastMessage(message, callbackContext);
+            return true;
+        }
+
         return false;
     }
 
@@ -50,12 +56,23 @@ public class v3SimplePlugin extends CordovaPlugin {
         }
     }
 
+    public void toastMessage() {
+        cordova.getActivity().runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                Toast myMessage = Toast.makeText(cordova.getActivity().getWindow().getContext(), "This message is from toastMessage()", Toast.LENGTH_LONG);
+                myMessage.show();
+            }
+        });
+    }
+
     public void PrintData() {
         cordova.getActivity().runOnUiThread(new Runnable() {
 
             @Override
             public void run() {
-                Toast myMessage = Toast.makeText(cordova.getActivity().getWindow().getContext(), "This message is from v3SimplePlugin", Toast.LENGTH_LONG);
+                Toast myMessage = Toast.makeText(cordova.getActivity().getWindow().getContext(), "This message is from PrintData()", Toast.LENGTH_LONG);
                 myMessage.show();
             }
         });
