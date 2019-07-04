@@ -12,17 +12,6 @@ import android.widget.Toast;
  * This class echoes a string called from JavaScript.
  */
 public class v3SimplePlugin extends CordovaPlugin {
-
-//    @Override
-//    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-//        if (action.equals("coolMethod")) {
-//            String message = args.getString(0);
-//            this.coolMethod(message, callbackContext);
-//            return true;
-//        }
-//        return false;
-//    }
-
     // Main  method for interacting with native code
     @Override
     public boolean execute(String action, final JSONArray args, final CallbackContext callbackContext)
@@ -40,7 +29,8 @@ public class v3SimplePlugin extends CordovaPlugin {
         }
 
         if (action.equals("toastMessage")) {
-            toastMessage();
+        	String message = args.getString(0);
+            toastMessage(message);
             callbackContext.success("okay");
             return true;
         }
@@ -56,12 +46,12 @@ public class v3SimplePlugin extends CordovaPlugin {
         }
     }
 
-    public void toastMessage() {
+    public void toastMessage(string messageToSend) {
         cordova.getActivity().runOnUiThread(new Runnable() {
 
             @Override
             public void run() {
-                Toast myMessage = Toast.makeText(cordova.getActivity().getWindow().getContext(), "This message is from toastMessage()", Toast.LENGTH_LONG);
+                Toast myMessage = Toast.makeText(cordova.getActivity().getWindow().getContext(), messageToSend, Toast.LENGTH_LONG);
                 myMessage.show();
             }
         });

@@ -4,6 +4,9 @@ function v3SimplePlugin() {}
 
 v3SimplePlugin.prototype.PluginName = "v3SimplePlugin";
 
+// Kjører alle metoder den får tilsendt
+// method: metode som skal kjøres i native kode
+// data: input som gis videre til metoden i native kode
 v3SimplePlugin.prototype.pInvoke = function(method, data, callbackOK, callbackError) {
     console.log('JS Interface: inside pInvoke()');
     if (data == null || data === undefined) {
@@ -14,11 +17,13 @@ v3SimplePlugin.prototype.pInvoke = function(method, data, callbackOK, callbackEr
     exec(callbackOK, callbackError, this.PluginName, method, data);
 };
 
+// Genererer en toast message i native kode
 v3SimplePlugin.prototype.printData = function(data, callbackOK, callbackError) {
     console.log('JS Interface: inside printData()');
     this.pInvoke("printData", data, callbackOK, callbackError);
 };
 
+// Genererer en toast message i native kode
 v3SimplePlugin.prototype.toastMessage = function(data, callbackOK, callbackError) {
     console.log('JS Interface: inside toastMessage()');
     this.pInvoke("toastMessage", data, callbackOK, callbackError);
