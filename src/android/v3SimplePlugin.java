@@ -46,7 +46,7 @@ public class v3SimplePlugin extends CordovaPlugin {
         }
     }
 
-    public void toastMessage(string messageToSend) {
+    public void toastMessage(String messageToSend) {
         cordova.getActivity().runOnUiThread(new Runnable() {
 
             @Override
