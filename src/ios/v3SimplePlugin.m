@@ -28,7 +28,7 @@
 
 - (NSString)toastMessage:(CDVInvokedUrlCommand*)command
 {
-    NSString *message = 'iOS message from PhoneGap plugin v3SimplePlugin';    
+    NSString* message = 'iOS message from PhoneGap plugin v3SimplePlugin';    
     return message;
 }
 
