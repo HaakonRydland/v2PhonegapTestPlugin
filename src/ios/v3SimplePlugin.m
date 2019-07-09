@@ -1,7 +1,7 @@
 /********* v3SimplePlugin.m Cordova Plugin Implementation *******/
 
 #import <Cordova/CDV.h>
-#import "UIAlertController.h"
+#import <UIAlertController+Window.h>
 
 @interface v3SimplePlugin : CDVPlugin {
   // Member variables go here.
