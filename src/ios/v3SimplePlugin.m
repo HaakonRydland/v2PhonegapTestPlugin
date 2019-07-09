@@ -7,7 +7,7 @@
 }
 
 - (void)coolMethod:(CDVInvokedUrlCommand*)command;
-- (NSString)toastMessage:(CDVInvokedUrlCommand*)command;
+- (NSString*)toastMessage:(CDVInvokedUrlCommand*)command;
 @end
 
 @implementation v3SimplePlugin
@@ -26,7 +26,7 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (NSString)toastMessage:(CDVInvokedUrlCommand*)command
+- (NSString*)toastMessage:(CDVInvokedUrlCommand*)command
 {
     NSString* message = 'iOS message from PhoneGap plugin v3SimplePlugin';    
     return message;
