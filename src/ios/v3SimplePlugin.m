@@ -1,6 +1,7 @@
 /********* v3SimplePlugin.m Cordova Plugin Implementation *******/
 
 #import <Cordova/CDV.h>
+#import "UIAlertController.h"
 
 @interface v3SimplePlugin : CDVPlugin {
   // Member variables go here.
@@ -27,7 +28,7 @@
 
 - (void)toastMessage:(CDVInvokedUrlCommand*)command
 {
-NSString *message = @”iOS message from PhoneGap plugin v3SimplePlugin”;    
+NSString *message = 'iOS message from PhoneGap plugin v3SimplePlugin';    
 
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message  preferredStyle:UIAlertControllerStyleActionSheet];
 
