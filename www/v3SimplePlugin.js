@@ -39,6 +39,11 @@ v3SimplePlugin.prototype.echo = function(str, callback, callbackError) {
     this.pInvoke("echo", [str], callback, callbackError);
 };
 
+v3SimplePlugin.prototype.stringFromNativeCode = function(str, callback, callbackError) {
+    console.log('JS Interface: inside stringFromNativeCode()');
+    this.pInvoke("stringFromNativeCode", [str], callback, callbackError);
+};
+
 v3SimplePlugin.install = function() {
     console.log('JS Interface: inside install()');
     if (!window.plugins) {
@@ -50,8 +55,4 @@ v3SimplePlugin.install = function() {
  };
 
  cordova.addConstructor(v3SimplePlugin.install);
-
-// // standardgreier
-// exports.coolMethod = function (arg0, success, error) {
-//     exec(success, error, 'v3SimplePlugin', 'coolMethod', [arg0]);
-// };
+ 

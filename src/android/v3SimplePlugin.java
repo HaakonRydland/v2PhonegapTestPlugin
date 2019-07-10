@@ -36,6 +36,10 @@ public class v3SimplePlugin extends CordovaPlugin {
             this.echo(message, callbackContext);
             return true;
         }
+        if (action.equals("stringFromNativeCode")) {
+            this.stringFromNativeCode(callbackContext);
+            return true;
+        }
         return false;
     }
 
@@ -54,6 +58,11 @@ public class v3SimplePlugin extends CordovaPlugin {
         } else {
             callbackContext.error("Expected one non-empty string argument.");
         }
+    }
+
+    public void stringFromNativeCode(CallbackContext callbackContext) {
+        String gotContact = "Android message from PhoneGap plugin v3SimplePlugin";
+        callbackContext.success(gotContact);
     }
 
     /* Most methods run on WebCore thread. Can override to UiThread to interact with user interface

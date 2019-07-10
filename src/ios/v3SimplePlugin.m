@@ -8,6 +8,7 @@
 
 - (void)coolMethod:(CDVInvokedUrlCommand*)command;
 - (NSString*)toastMessage:(CDVInvokedUrlCommand*)command;
+- (NSString*)stringFromNativecode:(CDVInvokedUrlCommand*)command;
 @end
 
 @implementation v3SimplePlugin
@@ -27,6 +28,11 @@
 }
 
 - (NSString *)toastMessage:(CDVInvokedUrlCommand*)command
+{
+    return @"iOS message from PhoneGap plugin v3SimplePlugin";
+}
+
+- (NSString *)stringFromNativeCode:(CDVInvokedUrlCommand*)command
 {
     return @"iOS message from PhoneGap plugin v3SimplePlugin";
 }
