@@ -34,10 +34,11 @@ v3SimplePlugin.prototype.coolMethod = function(data, callbackOK, callbackError) 
     this.pInvoke("coolMethod", data, callbackOK, callbackError);
 };
 
-v3SimplePlugin.echo = function(str, callback) {
-    exec(callback, function(err) {
+v3SimplePlugin.prototype.echo = function(str, callback) {
+    console.log('JS Interface: inside echo()');
+    this.pInvoke("echo", [str], callback, function(err) {
     callback('Nothing to echo');
-    }, "v3SimplePlugin", "echo", [str]);
+    });
 };
 
 v3SimplePlugin.install = function() {
