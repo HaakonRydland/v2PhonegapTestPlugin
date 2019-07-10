@@ -34,7 +34,8 @@
 
 - (NSString *)stringFromNativeCode:(CDVInvokedUrlCommand*)command
 {
-    return @"iOS message from PhoneGap plugin v3SimplePlugin";
+    NSString *messageToSend = @"Contact with stringFromNativeCode in v3SimplePlugin. Platform: iOS";
+    return messageToSend;
 }
 
 @end
