@@ -8,11 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import android.widget.Toast;
 
-/**
- * This class echoes a string called from JavaScript.
- */
 public class v3SimplePlugin extends CordovaPlugin {
-    // Main  method for interacting with native code
+    // Bridge from JavaScript: calls the corresponding native method based on action-parameter
     @Override
     public boolean execute(String action, final JSONArray args, final CallbackContext callbackContext)
         throws JSONException {
@@ -39,10 +36,10 @@ public class v3SimplePlugin extends CordovaPlugin {
             this.echo(message, callbackContext);
             return true;
         }
-
         return false;
     }
 
+    // Methods that can be called from JavaScript
     private void echo(String message, CallbackContext callbackContext) {
         if (message != null && message.length() > 0) {
             callbackContext.success(message);
@@ -59,6 +56,9 @@ public class v3SimplePlugin extends CordovaPlugin {
         }
     }
 
+    /* Most methods run on WebCore thread. Can override to UiThread to interact with user interface
+    or use ExecutorServices (cordova.getThreadPool().execute(new Runnable() {...))) to avoid blocking WebCore thread
+    for long operations */
     public void toastMessage(final String messageToSend) {
         cordova.getActivity().runOnUiThread(new Runnable() {
 
